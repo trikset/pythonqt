@@ -18,8 +18,10 @@ CONFIG(debug, debug|release) {
 }
 
 isEmpty(DESTDIR) {
-  DESTDIR = $$GLOBAL_DESTDIR
+  isEmpty(GLOBAL_DESTDIR): DESTDIR = $$PWD/../bin
+  !isEmpty(GLOBAL_DESTDIR): DESTDIR = $$GLOBAL_DESTDIR
 }
+
 
 # Allow override (e.g., qmake PYTHONQT_GENERATED_PATH=/abs/path)
 isEmpty(PYTHONQT_GENERATED_PATH) {
