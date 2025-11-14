@@ -165,7 +165,7 @@ jobs:
           "PYTHON_VERSION=${PYTHON_VERSION_SHORT}" PYTHON_DIR="/usr"
         make -j $(nproc) && \
         PYTHONDEVMODE=1 PYTHONASYNCIODEBUG=1 PYTHONWARNINGS=error PYTHONMALLOC=malloc_debug \
-          make check
+          make check TESTARGS="-platform minimal"
 
   oldschool:
     strategy:
